@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="grid">
+        {{#let (component "product/product-teaser") as |ProductTeaser|}}
+            {{#each products as |product index|}}
+                <ProductTeaser @product={{product}} @index={{add index 1}} @qty={{products.length}} @onAddToCart={{onAddToCart}} />
+            {{/each}}
+        {{/let}}
+    </div>
+    <Pagination @page={{page}} @totalItems={{products.meta.total}} @reCalculatePagination={{reCalculatePagination}} />
+</div>
+
